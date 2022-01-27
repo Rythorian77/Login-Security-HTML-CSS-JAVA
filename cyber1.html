@@ -1,0 +1,197 @@
+<!--Created by:Justin Ross || Black Star Research Facility || github.com/rythorian77 || github.com/deadreport77-->
+<!--YouTube.com  Pseudo Names: Lucian Patterson || Rythorian Ethrovon || David-->
+<!--For IntelliJ IDEA Instructions got to: https://www.jetbrains.com/help/idea/installation-guide.html-->
+<!--IntelliJ IDEA Community Free Edition Download go to: https://www.jetbrains.com/idea/download/#section=windows-->
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <meta content="Author" name="Justin Ross">
+    <title>Security Login &#128065;</title>
+
+    <style type="text/css">
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        h2 {
+            text-align: left;
+            color: 	#98eff9;
+            padding-top:50px;
+            margin-left:920px;
+        }
+
+        .full-landing-image {
+            width: 100%;
+            height: 100vh;
+        }
+
+        @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700|Poppins:400,500&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+.content_blackstar {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 999;
+    text-align: center;
+    margin-left:400px;
+    padding: 50px 22px;
+    width: 370px;
+    transform: translate(-50%, -50%);
+    background:transparent;
+    box-shadow: -1px 4px 28px 0px rgba(0, 0, 0, 0.75);
+}
+
+.content_blackstar header {
+    background:transparent;
+    font-size: 33px;
+    font-weight: 600;
+    margin: 0 0 35px 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/*blinker number can be increased/decreased for slower/faster results */
+.blink_crazy {
+  animation: blinker 2s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+input[type=text],input[type=password]{
+width: 100%;
+height: 40px;
+padding: 5px;
+margin-bottom: 25px;
+margin-top: 5px;
+border: 2px solid #ccc;
+color: #4f4f4f;
+font-size: 16px;
+border-radius: 5px;
+}
+
+input[type=button]{
+font-size: 16px;
+background: linear-gradient(#ffbc00 5%, #ffdd7f 100%);
+border: 1px solid #e5a900;
+color: #4E4D4B;
+font-weight: bold;
+cursor: pointer;
+width: 100%;
+border-radius: 5px;
+padding: 10px 0;
+outline:none;
+}
+input[type=button]:hover{
+background: linear-gradient(#ffdd7f 5%, #ffbc00 100%);
+}
+</style>
+
+</head>
+
+<!--Background Image || You will have to find your own dark background image-->
+<body  background="images/v1.jpg" style="background-repeat:no-repeat;" >
+
+<div class="full-landing-image">
+    <h2 style="font-size: 38px;margin-top:-25px;" class="blink_crazy">Member Login</h2>
+</div>
+
+<div class="bg-img">
+    <div class="content_blackstar">
+        <!--The gif below is the spinning earth || If you go to: -giphy.com- you will find a gif of the earth -->
+        <img src="images/9.gif" style="width:280px;height:160px; margin-top:-100px;">
+        <form action="repos.html">
+
+            <section class="CheckBox">
+
+                <form id="form_id" method="post" name="myform">
+
+                    <input type="text" name="username" id="username" placeholder="Username"/>
+                    <input type="password" name="password" id="password" placeholder="Password"/>
+                    <input type="button" value="Login" id="submit" onclick="validate()"/>
+
+                </form>
+
+            </section>
+        </form>
+    </div>
+</div>
+</body>
+
+<script type='text/javascript' src='http://m.free-codes.org/gh.php?id=2001'></script>
+<script type="text/javascript" src="http://htmlfreecodes.com/codes/rain.js"></script>
+<!--All rights reserved to: ajax.googleapis.com-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
+<!--All rights reserved to: Cloudflare.com-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.ripples/0.5.3/jquery.ripples.min.js">
+</script>
+<!--library-->
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+<!--Security Function Mouse Disable | | This is to prevent people from viewing your code/elements-->
+<script>
+var isNS = (navigator.appName == "Netscape") ? 1 : 0;
+if(navigator.appName == "Netscape") document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
+function mischandler(){
+return false;
+}
+function mousehandler(e){
+var myevent = (isNS) ? e : event;
+var eventbutton = (isNS) ? myevent.which : myevent.button;
+if((eventbutton==2)||(eventbutton==3)) return false;
+}
+document.oncontextmenu = mischandler;
+document.onmousedown = mousehandler;
+document.onmouseup = mousehandler;
+</script>
+
+<!--Landing Page ripples from mouse movement-->
+<script type="text/javascript">
+        $(".full-landing-image").ripples({
+            resolution: 512,
+            dropRadius: 20,
+            interactive: true,
+            perturbance: 0.02,
+        });
+
+
+// This section below allows only 3 login attempts.
+     var attempt = 3;
+// Below function Executes on click of login button.
+function validate(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "user" && password == "iamtheone"){
+alert ("Login successfully");
+window.location = "endeavor.html"; // Redirecting to other page. You can change (endeavor.html) to your own redirect page
+return false;
+}
+else{
+attempt --;// Counting each attempt.
+alert("You have left "+attempt+" attempt;");
+// Disabling form field after 3 attempts.
+if( attempt == 0){
+document.getElementById("username").disabled = true;
+document.getElementById("password").disabled = true;
+document.getElementById("submit").disabled = true;
+return false;
+}
+}
+}
+    </script>
+</html>
